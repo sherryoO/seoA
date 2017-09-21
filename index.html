@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>亿家图库、免费、专业、最大、效果图</title>
+	<meta name="description" content="一起爱家、装修、装修预算、全房、设计师、嘉禾、中俄演习"/>
+	<meta name="keywords" content="装修风格、智能家居、正品、环保、婚房装修、客厅、收纳、ETC取消"/>
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+</head>
+<body>
+	<header>
+		<h1>header</h1>
+	</header>
+	<div class="middle">
+		<p>middle</p>
+	</div>
+	<footer>
+		<p>footer</p>
+	</footer>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			type:"post",
+			url:"http://10.100.10.96:6789/yjtk_end/rest/seoWords/getByUrl",
+			data:{'url':'www.baidu.com'},
+			dataType: 'json',
+			success: function(data){
+				var corewords = data.detail.corewords,
+					hotwords = data.detail.corewords,
+					keywords = data.detail.keywords,
+					longwords = data.detail.longwords;
+					corewords = corewords.split(',');
+					hotwords = hotwords.split(',');
+					keywords = keywords.split(',');
+					longwords = longwords.split(',');
+				$.each(corewords, function(index,item) {
+					if(index<1){
+						$('header').append('<a title="'+item+'">'+item+'</a>')
+					}else if(index>0){
+						$('.middle').append('<img src="./img/Desert.jpg" alt="'+item+'" title="'+item+'"/>')
+					}
+				});
+				$.each(hotwords, function(index,item) {
+					if(index<1){
+						$('header').append('<img src="./img/Desert.jpg" alt="'+item+'" title="'+item+'"/>')
+					}else if(index>0){
+						$('.middle').append('<a title="'+item+'">'+item+'</a>')
+					}
+				});
+				$.each(keywords, function(index,item) {
+					if(index<1){
+						$('header').append('<img src="./img/Desert.jpg" alt="'+item+'" title="'+item+'"/>')
+					}else if(index>0){
+						$('.middle').append('<a title="'+item+'">'+item+'</a>')
+					}
+				});
+				$.each(longwords, function(index,item) {
+					if(index<1){
+						$('header').append('<img src="./img/Desert.jpg" alt="'+item+'" title="'+item+'"/>')
+					}else if(index>0){
+						$('.middle').append('<a title="'+item+'">'+item+'</a>')
+					}
+				});
+			},
+			error: function(data){
+				
+			}
+		});
+	</script>
+</body>
+</html>
+
+
